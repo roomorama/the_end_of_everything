@@ -48,6 +48,28 @@
     .container p {
       margin-top: 3px;
     }
+    #play {
+    border: 1px solid #222;
+    padding: 0px 30px 5px 19px;
+    border-radius: 100%;
+    font-size: 50px;
+    text-decoration: none;
+    color: #222;
+    margin-left: 30px;
+
+    }
+    .audio {
+      margin-top: 50px;
+      text-align: right;
+    }
+    .audio p {width: 300px; display: inline;}
+    #play.active {
+      background-color: rgba(204, 204, 204, 0.7);
+    }
+    #play:hover {
+      background-color: rgba(204, 204, 204, 0.8);
+
+    }
   </style>
 </head>
 
@@ -55,9 +77,27 @@
 
   <div class="container">
     <h1>Oops we are temporarily offline.</h1>
-    <h3>We apologise for the inconvenience. Please email <a href="mailto:info@roomorama.com">info@roomorama.com</a> for any urgent issues.</h3>
+    <h3>
+      We apologise for the inconvenience. Please email <a href="mailto:info@roomorama.com">info@roomorama.com</a> for any urgent issues.
+    </h3>
+    <section class="audio">
+      <p>If you feel sad about it, please play this music</p> <a href="#" onclick="toggleAudio(); return false" id="play">&#x1d11e;</a>
+      <audio id="audio" src="http://content2.audionetwork.com/Preview/tracks/mp3/v5res/ANW1573/02.mp3"></audio>
+      <script type="text/javascript">
+        var player = document.getElementById('audio')
+        var playButton = document.getElementById('play')
+        function toggleAudio() {
+          if (player.paused) {
+            player.play()
+            playButton.className += ' active'
+          } else {
+            player.pause()
+            playButton.classList.remove('active')
+          }
+        }
+      </script>
+    </section>
   </div>
-
 
 </body>
 </html>
